@@ -2,19 +2,96 @@ count = 0
 
 start = False
 
-while count < 5 or not start:
-    user_input = input("Enter 'start' to begin or 'exit' to quit: ").strip().lower()
-    
-    if user_input == 'start':
-      start = True
-      print("Starting the process...")
-    elif user_input == 'exit':
-      print("Exiting the program.")
-      break
+while count < 10:
+    if start:
+      count += 1
+      print(count)
     else:
-      print("Invalid input. Please try again.")
-    
-    count += 1
-  
+      start = True
+
+১. count = 0
+
+কী হচ্ছে: মেমোরিতে count নামের একটি ভেরিয়েবল তৈরি হলো এবং এতে 0 মান রাখা হলো।
+
+২. start = False
+
+কী হচ্ছে: মেমোরিতে start নামের আরেকটি ভেরিয়েবল তৈরি হলো এবং এর মান রাখা হলো False (অসত্য)।
+
+৩. while count < 10: (লুপের প্রথম ইটারেশন - Loop 1)
+
+কী হচ্ছে: পাইথন চেক করছে count < 10 কি না। যেহেতু count-এর মান 0 এবং 0 < 10 সত্য, তাই লুপের ভেতরে প্রবেশ করল।
+
+৪. if start:
+
+কী হচ্ছে: চেক করা হচ্ছে start সত্য (True) কি না। যেহেতু start-এর মান 0-তে বা আগের লাইনে False সেট করা আছে, তাই শর্তটি মিথ্যা হলো। ফলে if-এর ভেতরের ব্লকটি স্কিপ করে সরাসরি else-এ চলে গেল।
+
+৫. else:
+
+কী হচ্ছে: যেহেতু if মিথ্যা হয়েছে, তাই else-এর ভেلতরের কোড এক্সিকিউট হবে।
+
+৬. start = True
+
+কী হচ্ছে: start ভেরিয়েবলের মান পরিবর্তন হয়ে False থেকে এখন True হয়ে গেল। (প্রথম লুপ শেষ)।
+
+লুপ ২ (Second Iteration):
+
+while count < 10: count-এর মান এখনও 0 আছে, তাই 0 < 10 সত্য। লুপ আবার ভেতরে প্রবেশ করল।
+
+if start: এখন চেক করা হচ্ছে start সত্য কি না। যেহেতু একটু আগে start = True করা হয়েছে, তাই এবার এই শর্তটি সত্য হলো!
+
+count += 1 count-এর বর্তমান মান 0-এর সাথে 1 যোগ হলো। এখন count-νর নতুন মান হলো 1 (0 + 1 = 1)।
+
+print(count) স্ক্রিন বা কনসোলে প্রিন্ট হবে: 1
+
+(else ব্লকটি এইবার আর রান হবে না, কারণ if সত্য হয়ে গেছে)।
+
+লুপ ৩ (Third Iteration):
+
+while count < 10: count-এর মান 1 (1 < 10 সত্য)। লুপ ভেতরে প্রবেশ করল।
+
+if start: start এখনও True, তাই শর্ত সত্য।
+
+count += 1 count-এর মান ১ বেড়ে হলো 2 (1 + 1 = 2)।
+
+print(count) কনসোলে প্রিন্ট হবে: 2
+
+(এভাবে লুপটি চলতে থাকবে। প্রতিবার count-এর মান ১ করে বাড়বে এবং else ব্লকটি আর কখনো কাজ করবে না কারণ start চিরতরে True হয়ে গেছে।)
+
+লুপ ১১ (শেষের আগের ইটারেশন - যখন count = 9):
+
+while count < 10: count-এর মান 9 (9 < 10 সত্য)। লুপ ভেতরে প্রবেশ করল।
+
+if start: শর্ত সত্য।
+
+count += 1 count-এর মান ১ বেড়ে হলো 10 (9 + 1 = 10)।
+
+print(count) কনসোলে প্রিন্ট হবে: 10
+
+লুপ ১২ (Termination / লুপ শেষ হওয়া):
+
+while count < 10: পাইথন চেক করে দেখল count-এর মান এখন 10, আর 10 < 10 শর্তটি মিথ্যা (False)।
+
+ফলে while লুপের চেইন ভেঙে বা টার্মিনেট হয়ে প্রোগ্রাম এখানেই শেষ হয়ে গেল।
+
+চূড়ান্ত আউটপুট (Final Output):
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+
+
+
+
+
   
   
