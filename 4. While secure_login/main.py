@@ -1,3 +1,49 @@
+count = 0
+stop = False
+
+while count < 5 or stop == False:
+    print(count)
+    count += 1
+    if count == 3:
+        stop = True
+        
+
+
+count = 0
+start = False
+
+# লুপটি চলবে যতক্ষণ count ৫ এর কম অথবা start == False থাকে
+while count < 5 or start == False:
+    print(f"Current count: {count}, Start: {start}")
+    
+    # যদি start সত্য হয়, তবে count বাড়াতে থাকব
+    if start:
+        count += 1
+    # না হলে প্রথমে start কে True করে দেবো
+    else:
+        start = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 correct_pin = "1234"
 attempts_left = 3   # সর্বোচ্চ ৩ বার চেষ্টা করার সুযোগ আছে
 
