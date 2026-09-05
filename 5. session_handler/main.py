@@ -288,4 +288,100 @@ while is_cart_processing:
 
 print("Checkout session ended. Thank you! 🙏")
              
-                                                                                             
+
+
+
+and এবং not একসাথে ব্যবহার করে লগইন ট্রাই লজিক
+এখানে while লুপের শর্তে and এবং not একসাথে ব্যবহার করা হয়েছে। লুপটি তখনই চলবে যখন চেষ্টা ৩ বারের কম থাকবে এবং ইউজার লগইন করা থাকবে না (not is_authenticated)।                                                                                             
+
+
+attempts = 0
+max_attempts = 3
+is_authenticated = False
+
+print("--- Multi-Condition Login System ---")
+
+# while লুপের শর্তে and এবং not এর ব্যবহার
+while (attempts < max_attempts) and (not is_authenticated):
+    attempts += 1
+    print(f"Login attempt #{attempts}: Checking credentials...")
+    
+    # ধরি ৩ নম্বর চেষ্টায় ইউজার সঠিক পাসওয়ার্ড দিয়েছে
+    if attempts == 3:
+        is_authenticated = True
+        print("Credentials verified! Authentication Successful! 🟢")
+
+print("Session process finished. ✅")
+
+
+
+or এবং if এর কম্বিনেশন (সিস্টেম মনিটরিং)
+এখানে while লুপের শর্তে or ব্যবহার করা হয়েছে। count যদি ৩-এর কম হয় অথবা সিস্টেম যদি সচল থাকে, তবে লুপ চলতে থাকবে।
+
+count = 0
+system_active = True
+
+print("--- Server Health Check ---")
+
+# while লুপের শর্তে or এর ব্যবহার
+while (count < 3) or system_active:
+    count += 1
+    print(f"Health check count: {count}")
+    
+    # যখন count এর মান ৩ হবে, তখন system_active কে False করে দেওয়া হবে
+    if count == 3:
+        system_active = False
+        print("Server shutdown signal received. system_active is now False. 🛑")
+
+print("Monitor loop ended safely. ✅")
+
+
+not এবং and একসাথে ব্যবহার করে গেটওয়ে ট্রাফিক কন্ট্রোল
+এখানে while লুপের শর্তে not এবং and একসাথে ব্যবহার করা হয়েছে। লুপটি তখনই সচল থাকবে 
+যখন মেইনটেনেন্স মোড বন্ধ থাকবে (not is_maintenance) এবং রিকোয়েস্টের সংখ্যা ৩-এর কম থাকবে (request_count < 3)।   
+
+
+is_maintenance = False
+request_count = 0
+
+print("--- Gateway Traffic Control ---")
+
+# লুপ চলবে যতক্ষণ মেইনটেনেন্স মোড অন হয়নি (not) এবং রিকোয়েস্ট ৩ এর কম (and)
+while (not is_maintenance) and (request_count < 3):
+    request_count += 1
+    print(f"Request {request_count}: Allowed through gateway. 🟢")
+    
+    # ৩ নম্বর রিকোয়েস্টে মেইনটেনেন্স মোড চালু করে দেওয়া হলো
+    if request_count == 3:
+        is_maintenance = True
+        print("Maintenance mode activated! Server closing gates... 🛑")
+
+print("Gateway session closed safely. ✅")
+
+
+
+or, and এবং not এর কম্বিনেশন দিয়ে সেফ শাটডাউন
+এখানে একাধিক লজিক্যাল অপারেটর একসাথে ব্যবহার করে সার্ভার মনিটরিংয়ের লজিক তৈরি করা হয়েছে, যেখানে count == 3 হলে সিস্টেম নিরাপদে বন্ধ হয়ে যায়।
+
+
+system_running = True
+is_error = False
+retry_count = 0
+
+print("--- Secure Server Monitor ---")
+
+# লুপ চলবে যখন সিস্টেম রানিং থাকে এবং (এরর না থাকে অথবা রিট্রাই ৩ এর কম হয়)
+while system_running and ((not is_error) or (retry_count < 3)):
+    retry_count += 1
+    print(f"Monitoring cycle: {retry_count}")
+    
+    # যখন রিট্রাই ৩ এ পৌঁছাবে, তখন এরর ট্রু হবে এবং সিস্টেম বন্ধ হয়ে যাবে
+    if retry_count == 3:
+        is_error = True
+        system_running = False  # সিস্টেম বন্ধ করার জন্য ফ্লাগ ফলস করা হলো
+        print("Critical error detected! Shutting down system safely. ⚠️🛑")
+
+print("Monitor program exited. ✅")
+
+
+
