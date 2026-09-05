@@ -43,3 +43,14 @@ input() ফাংশন এই 30-কে প্রথমে স্ট্রি�
 30 is in the list.
 
 (else ব্লকটি এই ক্ষেত্রে পুরোপুরি স্কিপ বা বাদ হয়ে যাবে)।
+
+
+
+
+user_input = int(input("Enter a number: "))
+
+# সংখ্যাটি জোড় কি না তা চেক করা
+if user_input % 2 == 0:
+    print(f"{user_input} is an Even (জোড়) number")
+else:
+    print(f"{user_input} is an Odd (বিজোড়) number")
