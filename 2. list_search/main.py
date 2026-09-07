@@ -47,6 +47,148 @@ input() ফাংশন এই 30-কে প্রথমে স্ট্রি�
 
 
 
+
+সংখ্যাটি লিস্টের কত নম্বর পজিশনে (Index) আছে তা দেখানো
+সংখ্যাটি লিস্টে পাওয়ার পর সেটি কত নম্বর ইনডেক্সে বা পজিশনে আছে, তা বের করতে  index() মেথড ব্যবহার:
+
+number = [10, 20, 30, 40, 50]
+user_number = int(input("Enter a number to check: "))
+
+if user_number in number:
+    position = number.index(user_number)
+    print(f"{user_number} is in the list! Its position or index is: {position}")
+else:
+    print(f"{user_number} is not in the list.")
+
+
+number = [10, 20, 30, 40, 50]
+
+পাইথন মেমোরিতে number নামের একটি লিস্ট তৈরি হলো যার ভেতরে ৫টি উপাদান আছে।
+
+user_number = int(input("Enter a number to check if it is in the list: "))
+
+ইউজারের কাছ থেকে কনসোলে একটি সংখ্যা ইনপুট চাওয়া হলো। ধরা যাক ইউজার ইনপুট দিল 30। সেটি ইন্টিজারে রূপান্তরিত হয়ে user_number ভ্যারিয়েবলে জমা হলো।
+
+if user_number in number:
+
+কন্ডিশন চেক করা হলো যে 30 সংখ্যাটি number লিস্টের মধ্যে আছে কি না। যেহেতু 30 লিস্টে আছে, তাই শর্তটি True হলো।
+
+position = number.index(user_number)
+
+লিস্টে 30 সংখ্যাটি কত নম্বর ইনডেক্সে আছে তা খোঁজা হলো। এটি ইনডেক্স 2 এ পাওয়া গেল এবং position ভ্যারিয়েবলে 2 সংরক্ষিত হলো।
+
+print(f"{user_number} is in the list! Its position or index is: {position}")
+
+স্ক্রিনে প্রিন্ট হলো: 30 is in the list! Its position or index is: 2
+
+else:
+
+যেহেতু if এর শর্ত সত্য হয়েছে, তাই else ব্লকের ভেতরের কোডগুলো স্কিপ বা বাদ চলে যাবে।
+
+
+position = number.index(user_number) এই লাইনটির সহজ অর্থ হলো—ইউজার যে সংখ্যাটি ইনপুট দিয়েছেন (user_number),
+সেটি number নামের লিস্টের কত নম্বর ইনডেক্সে বা পজিশনে আছে তা খুঁজে বের করা এবং সেই ইনডেক্স নম্বরটি position নামের ভ্যারিয়েবলে সংরক্ষণ করা।
+
+
+
+
+
+
+
+নতুন সংখ্যা লিস্টে যোগ করার সুবিধা (Add to List)
+যদি ইউজার এমন কোনো সংখ্যা ইনপুট দেয় যা লিস্টে নেই, তখন তাকে জিজ্ঞেস করতে পারেন
+যে সে সংখ্যাটি লিস্টে যোগ করতে চায় কিনা। হ্যাঁ বললে সেটা লিস্টে যোগ হয়ে যাবে:
+
+
+number = [10, 20, 30, 40, 50]
+user_number = int(input("Enter a number to check: "))
+
+if user_number in number:
+    print(f"{user_number} already in the list")
+else:
+    print(f"{user_number} is not in the list.")
+    choice = input("Do you want to add this number to the list? (yes/no): ")
+    if choice.lower() == 'yes':
+        number.append(user_number)
+        print("List updated! New list:", number)
+
+
+এই সম্পূর্ণ কোডটির লাইন বাই লাইন ড্রাই রান (Dry Run) নিচে দেওয়া হলো:
+
+number = [10, 20, 30, 40, 50]
+
+মেমোরিতে number নামের একটি লিস্ট তৈরি হলো যার ভেতরে ৫টি উপাদান রয়েছে।
+
+user_number = int(input("Enter a number to check: "))
+
+ইউজারের কাছ থেকে সংখ্যা ইনপুট চাওয়া হলো।
+
+ধরে নেওয়া যাক ইউজার ইনপুট দিল 30 (যা লিস্টে আছে)।
+
+if user_number in number:
+
+চেক করা হলো 30 সংখ্যাটি লিস্টে আছে কি না। যেহেতু 30 লিস্টে আছে, তাই শর্তটি True হলো।
+
+print(f"{user_number} already in the list")
+
+কনসোলে প্রিন্ট হলো: 30 already in the list
+
+যেহেতু if শর্ত সত্য হয়েছে, তাই else ব্লকের ভেতরের কোডগুলো আর রান হবে না। প্রোগ্রাম এখানেই শেষ হয়ে যাবে।
+
+যদি ইউজার এমন সংখ্যা দিত যা লিস্টে নেই (যেমন: 60):
+
+number = [10, 20, 30, 40, 50] (লিস্ট ডিক্লেয়ার হলো)
+
+user_number এ ইউজার ইনপুট দিল 60।
+
+if user_number in number: চেক করে দেখল 60 লিস্টে নেই, তাই শর্তটি False হলো এবং কোডটি else ব্লকে চলে গেল।
+
+print(f"{user_number} is not in the list.") প্রিন্ট হলো: 60 is not in the list.
+
+choice = input("Do you want to add this number to the list? (yes/no): ")
+
+ইউজারের কাছে জানতে চাওয়া হলো সে লিস্টে যোগ করতে চায় কিনা।
+
+ধরে নিই ইউজার লিখল yes।
+
+if choice.lower() == 'yes': শর্তটি সত্য হলো।
+
+number.append(user_number)
+
+60 সংখ্যাটি number লিস্টের একদম শেষে যুক্ত হয়ে গেল। এখন লিস্টটি হলো: [10, 20, 30, 40, 50, 60]।
+
+print("List updated! New list:", number)
+
+প্রিন্ট হলো: List updated! New list: [10, 20, 30, 40, 50, 60]
+
+
+
+
+লুপ চালিয়ে বারবার চেক করার সুবিধা (While Loop)
+একবার কোড রান করে চেক করার পর প্রোগ্রাম বন্ধ হয়ে যায়। চাইলে একটি while লুপ ব্যবহার করা যাবে, যাতে ইউজার যতক্ষণ চায় ততক্ষণ সংখ্যা চেক করতে পারে:
+
+
+number = [10, 20, 30, 40, 50]
+
+while True:
+    user_input = input("একটি সংখ্যা লিখুন (অথবা বন্ধ করতে 'q' চাপুন): ")
+    
+    if user_input.lower() == 'q':
+        print("প্রোগ্রাম শেষ!")
+        break
+        
+    user_number = int(user_input)
+    
+    if user_number in number:
+        print(f"✅ {user_number} লিস্টের মধ্যে আছে।\n")
+    else:
+        print(f"❌ {user_number} লিস্টের মধ্যে নেই।\n")
+
+
+
+
+
+
 user_input = int(input("Enter a number: "))
 
 # সংখ্যাটি জোড় কি না তা চেক করা
