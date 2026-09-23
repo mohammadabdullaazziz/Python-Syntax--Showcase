@@ -112,5 +112,52 @@ while count < 10: পাইথন চেক করে দেখল count-এর 
   
 
 
-  
-  
+উদাহরণ ১: ডাইনামিক লিস্ট ম্যানেজার (যতক্ষণ ইচ্ছা ডেটা যোগ করা)
+এই কোডটি বারবার ইউজারের কাছ থেকে নাম্বার নেবে। নাম্বারটি লিস্টে আগে থেকেই থাকলে বলবে আছে,
+আর না থাকলে লিস্টে যোগ করে নতুন লিস্ট দেখাবে। ইউজার নিজে quit না লেখা পর্যন্ত লুপটি চলতেই থাকবে।
+
+nums = [10, 20, 30]
+
+print("--- Number Management System Started ---")
+
+while True:
+    user_input = input("Enter a number (type 'quit' to exit): ")
+    
+    if user_input.lower() == 'quit':
+        print("Program ended! Final list:", nums)
+        break
+        
+    n = int(user_input)
+    
+    if n in nums:
+        print(f"⚠️ {n} is already in the list!\n")
+    else:
+        nums.append(n)
+        print(f"✅ {n} added successfully!")
+        print("Updated list:", nums, "\n")
+
+
+
+
+
+উদাহরণ ২: সিকিউরিটি পিন বা লগইন সিস্টেম (ভুল করলে বারবার সুযোগ দেওয়া)
+ব্যাকএন্ডে ইউজারের পাসওয়ার্ড বা পিন ভেরিফিকেশন করার সময় এই লজিকটি সবচেয়ে বেশি ব্যবহার করা হয়। 
+ইউজার সঠিক পিন না দেওয়া পর্যন্ত লুপ ঘুরতে থাকে।
+
+
+pin = "1234"
+tries = 3
+
+while tries > 0:
+    entered = input("Enter your 4-digit PIN: ")
+    
+    if entered == pin:
+        print("🎉 Login successful! Welcome.")
+        break  # সঠিক হলে লুপ শেষ
+    else:
+        tries -= 1
+        print(f"❌ Wrong PIN! You have {tries} attempts left.\n")
+
+# ৩ বার ভুল হলে
+if tries == 0:
+    print("🚨 Account temporarily blocked!")
