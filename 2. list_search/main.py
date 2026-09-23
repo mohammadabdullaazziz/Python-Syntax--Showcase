@@ -161,6 +161,27 @@ print("List updated! New list:", number)
 
 প্রিন্ট হলো: List updated! New list: [10, 20, 30, 40, 50, 60]
 
+ব্যাকএন্ডের ভাষায় কোডের রূপ কেমন হয়?
+ব্যাকএন্ডের ছোট একটা এপিআই (API) বা ফাংশন তৈরি করা যায়। যেমন:
+
+# ব্যাকএন্ডে একটি ডাটাবেজের ডামি লিস্ট (ধরে নিন এটি আপনার ডেটাবেজ)
+database_numbers = [10, 20, 30, 40, 50]
+
+def check_and_add_number(user_number):
+    if user_number in database_numbers:
+        return {"status": "success", "message": f"{user_number} আগেই ডাটাবেজে আছে!"}
+    else:
+        # ব্যাকএন্ড স্বয়ংক্রিয়ভাবে বা ইউজারের অনুমতি নিয়ে ডাটাবেজে সেভ করে দেবে
+        database_numbers.append(user_number)
+        return {"status": "updated", "message": f"{user_number} সফলভাবে ডাটাবেজে যোগ করা হয়েছে!", "new_db": database_numbers}
+
+# ফাংশন টেস্ট করে দেখি:
+print(check_and_add_number(100))
+
+{'status': 'updated', 'message': '100 সফলভাবে ডাটাবেজে যোগ করা হয়েছে!', 'new_db': [10, 20, 30, 40, 50, 100]}
+
+
+
 
 
 
